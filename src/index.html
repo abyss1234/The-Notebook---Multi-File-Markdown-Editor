@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Notebook — Markdown</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Markdown parser (with graceful fallback in app.js if this fails) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo">🗒️</span>
+      <strong>The Notebook</strong>
+      <span class="muted">— Multi-File Markdown Editor</span>
+    </div>
+    <div class="actions">
+      <button id="btn-new" title="New Note">New</button>
+      <button id="btn-rename" title="Rename Note">Rename</button>
+      <button id="btn-delete" title="Delete Note">Delete</button>
+      <span class="divider" aria-hidden="true"></span>
+      <button id="btn-export" title="Export Notes">Export</button>
+      <label for="file-import" class="btn-like" title="Import Notes (JSON)">Import</label>
+      <input id="file-import" type="file" accept="application/json" hidden />
+      <span class="divider" aria-hidden="true"></span>
+      <button id="btn-theme" class="btn-theme" aria-pressed="false" title="Toggle theme">🌙 Dark</button>
+      <span id="save-status" class="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Left: files -->
+    <aside class="panel files">
+      <div class="panel-header">
+        <input id="search" class="search" type="search" placeholder="Search notes..." />
+      </div>
+      <ul id="file-list" class="file-list" role="listbox" aria-label="Notes"></ul>
+    </aside>
+
+    <!-- Middle: editor -->
+    <section class="panel editor">
+      <textarea id="editor" spellcheck="false" aria-label="Markdown editor"></textarea>
+    </section>
+
+    <!-- Right: preview -->
+    <section class="panel preview">
+      <article id="preview" class="preview-content" aria-label="Markdown preview"></article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-left">
+      <span class="dot"></span> Local-first · Markdown · Autosave
+    </div>
+    <div class="footer-center">
+      <strong>The Notebook</strong> <span class="muted">— Multi-File Editor</span>
+    </div>
+    <div class="footer-right muted">
+      Your notes stay in this browser
+    </div>
+  </footer>
+
+  <!-- Export Modal -->
+  <div id="export-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="export-title">
+    <div class="modal-content">
+      <h3 id="export-title">Export Notes</h3>
+      <p class="muted">Choose specific notes to export, or export all.</p>
+
+      <div id="export-list" class="export-list" role="listbox" aria-label="Select notes to export"></div>
+
+      <div class="modal-actions">
+        <label class="select-all">
+          <input id="export-select-all" type="checkbox" />
+          <span>Select all</span>
+        </label>
+        <span class="spacer"></span>
+        <button id="btn-export-selected">Export Selected</button>
+        <button id="btn-export-all">Export All</button>
+        <button id="btn-export-cancel" class="btn-ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
