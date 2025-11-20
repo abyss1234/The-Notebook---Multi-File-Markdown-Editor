@@ -195,8 +195,8 @@ Add a **theme toggle**:
 **Prereqs:** Any modern browser (Chrome, Edge, Firefox, Safari). No build tools.
 
 ### Run Locally
-1. Download the project folder.  
-2. Open `index.html` directly in your browser **or** use VS Code → **Go Live** (Live Server) for auto-reload.  
+1. Download the project folder. OR open the link https://abyss1234.github.io/The-Notebook---Multi-File-Markdown-Editor/
+2. Open `index.html` directly in your browser **or** use VS Code → **Go Live** (Live Server) for auto-reload. 
 3. (Optional) Start fresh: open DevTools (**F12**) → **Application / Storage** → clear this site’s data `localStorage`.
 
 ### Reproduce the Results
